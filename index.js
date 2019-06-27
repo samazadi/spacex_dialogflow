@@ -35,13 +35,14 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
 
   function getMissionDataHandler(agent) {
     const url = `${baseUrl}/missions`;
-    agent.add('Some recent missions are:');
+    let msg = 'Some recent missions are:';
     return axios.get(`${url}?limit=3`)
       .then(res => {
         const missionData = res.data;
         missionData.map(mission => {
-          agent.add(mission.mission_name);
+          msg += ` ${mission.mission_name}`
         });
+        agent.add(msg);
       });
   }
 
