@@ -29,7 +29,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
     return axios.get(`${url}?launch_year=${launchYear}&order=desc`)
       .then(res => {
         const launchData = res.data;
-        agent.add(`There were ${launchData.length} launches in ${launchYear}. The last launch mission was called ${launchData[0].mission_name} using the ${launchData[0].rocket.rocket_name}. Ask me about the ${launchData[0].rocket.rocket_name}!`);
+        agent.add(`There were ${launchData.length} launches in ${launchYear}. The last launch mission was called ${launchData[0].mission_name} using the ${launchData[0].rocket.rocket_name}.`);
       });
   }
 
