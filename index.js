@@ -40,7 +40,7 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
       .then(res => {
         const missionData = res.data;
         missionData.map(mission => {
-          msg += ` ${mission.mission_name}`
+          msg += ` ${mission.mission_name}`;
         });
         agent.add(msg);
       });
